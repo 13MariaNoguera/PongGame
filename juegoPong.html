@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PONG GAME!</title>
+    <link rel="shortcut icon" href="src/img/pongIcon.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/jquery-ui-1.14.0.custom/jquery-ui.css">
+    <script src="src/jquery-ui-1.14.0.custom/jquery-ui.js"></script>  
+    <link rel="stylesheet" href="/script/juego.css">
+</head>
+<body>
+    
+    <!-- PANTALLA INICIO -->
+    <div class="homeScreen">
+        <div class="screenContainer">
+            <div class="divImg">
+                <img class="imgPong" src="src/img/gameLogo.png" alt="Pong">
+            </div>
+            <div class="divBtn">
+                <div class="gameList">
+                    <div class="row">
+                        <div class="btn btnJugar1">1 JUGADOR</div>
+                        <div class="btn btnJugar2">2 JUGADORES</div>
+                    </div>
+                    <div class="btn btnAjusteSondido">AJUSTES DE SONIDOS</div>
+                    <div class="btn btnConfi">CONFIGURACIONES</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divMusic">
+            <audio id="gameMusic" src="src/music/gameMusic.mp3" autoplay loop></audio>
+            <svg class="musicBtnOn" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M11 2h2v20h-2v-2H9v-2h2V6H9V4h2V2zM7 8V6h2v2H7zm0 8H3V8h4v2H5v4h2v2zm0 0v2h2v-2H7zm10-6h-2v4h2v-4zm2-2h2v8h-2V8zm0 8v2h-4v-2h4zm0-10v2h-4V6h4z"/>
+            </svg>
+            <svg class="musicBtnOff hiddenContent" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13 2h-2v2H9v2H7v2H3v8h4v2h2v2h2v2h2V2zM9 18v-2H7v-2H5v-4h2V8h2V6h2v12H9zm10-6.777h-2v-2h-2v2h2v2h-2v2h2v-2h2v2h2v-2h-2v-2zm0 0h2v-2h-2v2z"/>
+            </svg>
+        </div>
+
+        <footer class="homeFooter">
+            <p>
+                by María Noguera
+                <span>
+                    <svg width="10px" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9V2zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4h4z" fill="currentColor"/> </svg>
+                </span>
+            </p>
+        </footer>
+    </div>
+
+    
+
+
+    <!-- JUEGO PARA 1 JUGADOR -->
+    <div class="gameScreen">
+        <div class="divBtnJuego">
+            <div class="nameContainerJ1"><p class="nombreJ1"></p></div>
+            <ul class="gameList">
+                <li>
+                    <svg class="btnInicio" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M14 2h-4v2H8v2H6v2H4v2H2v2h2v10h7v-6h2v6h7V12h2v-2h-2V8h-2V6h-2V4h-2V2zm0 2v2h2v2h2v2h2v2h-2v8h-3v-6H9v6H6v-8H4v-2h2V8h2V6h2V4h4z"/>
+                    </svg>
+                </li>
+                <li>
+                    <svg class="btnPausa" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 4H5v16h5V4zm9 0h-5v16h5V4z"/>
+                    </svg>
+                    <svg class="btnReanudar hiddenContent" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 20H8V4h2v2h2v3h2v2h2v2h-2v2h-2v3h-2v2z"/>
+                    </svg>
+                </li>
+                <li>
+                    <svg class="btnConfig" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M3 8h4m0 0V6h4v2M7 8v2h4V8m0 0h10M3 16h10m0 0v-2h4v2m-4 0v2h4v-2m0 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+                    </svg>
+                </li>
+            </ul>
+            <div class="nameContainerJ2 hiddenName"><p class="nombreJ1"></p></div>
+        </div>
+        <div class="gameContainer">
+            <div id="paddle"><!-- paddle --></div>
+            <div id="ball"><!-- ball --></div>
+        </div>
+    </div>
+
+    <!-- JUEGO PARA 2 JUGADORES -->
+    
+
+    <!-- PANTALLA CONFIGURACIÓN -->
+    <div class="settingScreen hiddenContent">
+        <h2 class="stnTitle">CONFIGURACIONES</h2>
+        <div class="divCloseBtn">
+            <svg class="closeBtn" width="35px"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 5h2v2H5V5zm4 4H7V7h2v2zm2 2H9V9h2v2zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm2-2v2h-2V9h2zm2-2v2h-2V7h2zm0 0V5h2v2h-2z"/>
+            </svg>
+        </div>
+        <div id="tabs">
+            <ul class="stnList">
+                <li><a class="tab tab-1" href="#tabs-1">JUGADORES</a></li>
+                <li><a class="tab tab-2" href="#tabs-2">DIFICULTAD</a></li>
+                <li><a class="tab tab-3" href="#tabs-3">TAMAÑOS</a></li>
+                <li><a class="tab tab-4" href="#tabs-4">COLORES</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div>
+                    <div class="col1">
+                        <label class="textLabel" for="nombreJ1">NOMBRE (J1)</label>
+                        <input type="text" id="nameJ1" placeholder="NOMBRE JUGADOR 1" value="NOMBRE J1">
+                    </div>
+                    <div class="col1">
+                        <label class="textLabel" for="nombreJ2">NOMBRE (J2)</label>
+                        <input type="text" id="nameJ2" placeholder="NOMBRE JUGADOR 2" value="NOMBRE J2">
+                    </div>
+                </div>
+                <div>
+                    <div class="col2">
+                        <label class="textLabel" for="teclasJ1">TECLAS (J1)</label>
+                        <div class="divBtnPlayer">
+                            <span id="j1Up" class="btnPlayer">W</span>
+                            <span id="j1Down" class="btnPlayer">S</span>
+                        </div>
+                    </div>
+                    <div class="col2">
+                        <label class="textLabel" for="teclasJ2">TECLAS (J2)</label>
+                        <div class="divBtnPlayer">
+                            <span id="j2Up" class="btnPlayer">O</span>
+                            <span id="j2Down" class="btnPlayer">L</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-2">
+                <div class="">
+                    <h3 class="difficultyTitle">SELECCIONA LA DIFICULTAD</h3>
+                    <div class="difficultyBtn">
+                        <button id="easyBtn" class="btnDifficulty">Fácil</button>
+                        <button id="mediumBtn" class="btnDifficulty">Intermedio</button>
+                        <button id="hardBtn" class="btnDifficulty">Difícil</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-3">
+                <div>
+                    <div class="col1">
+                        <label class="textLabel" for="paddleSize1">TAMAÑO PALA (J1)</label>
+                        <input type="number" id="paddleSize1" placeholder="PALA JUGADOR 1">
+                    </div>
+                    <div class="col1">
+                        <label class="textLabel" for="ballSize1">TAMAÑO PELOTA (J1)</label>
+                        <input type="number" id="ballSize1" placeholder="PELOTA JUGADOR 1">
+                    </div>
+                </div>
+                <div>
+                    <div class="col2">
+                        <label class="textLabel" for="paddleSize2">TAMAÑO PALA (J2)</label>
+                        <input type="number" id="paddleSize2" placeholder="PALA JUGADOR 2">
+                    </div>
+                    <div class="col2">
+                        <label class="textLabel" for="ballSize2">TAMAÑO PELOTA (J2)</label>
+                        <input type="number" id="ballSize2" placeholder="PELOTA JUGADOR 2">
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-4" class="contentTab">
+                <div>
+                    <div class="col1">
+                        <label class="textLabel" for="paddleColor1">COLOR PALA (J1)</label>
+                        <input type="color" id="paddleColor1" placeholder="PALA JUGADOR 1">
+                    </div>
+                    <div class="col1">
+                        <label class="textLabel" for="ballColor1">COLOR PELOTA (J1)</label>
+                        <input type="color" id="ballColor1" placeholder="PELOTA JUGADOR 1">
+                    </div>
+                </div>
+                <div>
+                    <div class="col2">
+                        <label class="textLabel" for="paddleColor2">COLOR PALA (J2)</label>
+                        <input type="color" id="paddleColor2" placeholder="PALA JUGADOR 2">
+                    </div>
+                    <div class="col2">
+                        <label class="textLabel" for="ballColor2">COLOR PELOTA (J2)</label>
+                        <input type="color" id="ballColor2" placeholder="PELOTA JUGADOR 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divCambios">
+            <span id="applyBtn" class="btnAplicar">APLICAR</span>
+            <span id="cancelBtn" class="btnCancelar">CANCELAR</span>
+        </div>
+    </div>
+
+    <!-- PANTALLA AJUSTES DE SONIDO -->
+    <div class="soundStnScreen hiddenContent">
+        <h2 class="soundStnTitle">AJUSTES DE SONIDOS</h2>
+        <div class="divCloseBtn">
+            <svg class="closeSoundBtn" width="35px"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5 5h2v2H5V5zm4 4H7V7h2v2zm2 2H9V9h2v2zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm2-2v2h-2V9h2zm2-2v2h-2V7h2zm0 0V5h2v2h-2z"/>
+            </svg>
+        </div>
+        <div class="soundStnContainer">
+            <div class="col1 volumeControl">
+                <label for="masterVolume">VOLUMEN GENERAL: </label>
+                <label for="musicVolume">VOLUMEN MÚSICA: </label>
+                <label for="effectsVolume">VOLUMEN EFECTOS: </label>
+            </div>
+            <div class="col2 volumeControl">
+                <input type="range" id="masterVolume" min="0" max="1" step="0.01" value="0.5">
+                <input type="range" id="musicVolume" min="0" max="1" step="0.01" value="0.5">
+                <input type="range" id="effectsVolume" min="0" max="1" step="0.01" value="0.5">
+            </div>
+        </div>
+        <div class="divCambios">
+            <span id="applyBtn" class="btnAplicar">APLICAR</span>
+            <span id="cancelBtn" class="btnCancelar">CANCELAR</span>
+        </div>
+    </div>
+
+    <!-- PANTALLA INICIO CON BOTÓN (EN DESARROLLO, NO IMPLEMENTADO TODAVÍA)-->
+    <div class="btnHomeScreenBG hiddenContent">
+        <div class="btnHomeScreen">
+            <h2 class="btnHomeTitle">¿DESEA VOLVER A SALA?</h2>
+            <p>Si vuelve a sala la partidad finalizará</p>
+            <div class=btnContainer>
+                <div class="btnHome btnHome1">VOLVER A SALA</div>
+                <div class="btnHome btnHome2">REANUDAR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA PAUSA (EN DESARROLLO, NO IMPLEMENTADO TODAVÍA)-->
+    <div class="pauseScreenBG hiddenContent">
+        <div class="pauseScreen">
+            <h2 class="pauseTitle">PONG EN PAUSA</h2>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="notification" class="hiddenContent"></div>
+    
+    <script src="script/juegoPong.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* CSS JUEGO DEL PONG */
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,500;1,500&family=Tiny5&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Tiny5", sans-serif;
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.fondo {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* CONTENEDOR BOTONES MENÚ */
+.divBtn {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    width: 40%;
+}
+
+li {
+    list-style: none;
+    margin: 10px;
+}
+
+.btn {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    background-color: #FF3033;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #fd4144;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(1);
+}
